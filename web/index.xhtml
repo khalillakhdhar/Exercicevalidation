@@ -10,7 +10,7 @@
         <h:form>
             Nom:<h:inputText value="#{employee.nom}" validatorMessage="un nom alphabétique est requis!">
                 <f:validateRequired></f:validateRequired>
-                <f:validateRegex pattern="[A-Za-z ]{3,20}"></f:validateRegex>
+                <f:validateRegex  pattern="[A-Za-z ]{3,20}"></f:validateRegex>
             
             </h:inputText><br/>
             prenom:<h:inputText validatorMessage="un prenom alphabétique est requis!" value="#{employee.prenom}">
