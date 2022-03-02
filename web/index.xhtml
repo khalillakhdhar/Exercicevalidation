@@ -1,19 +1,38 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet jsf validation</title>
     </h:head>
     <h:body>
         <h:form>
-            Nom:<h:inputText value="#{employee.nom}"></h:inputText><br/>
-            prenom:<h:inputText value="#{employee.prenom}"></h:inputText><br/>
-            Email:<h:inputText value="#{employee.email}"></h:inputText><br/>
-            Age:<h:inputText value="#{employee.age}"></h:inputText><br/>
-            Password: <h:inputSecret value="#{employee.password}" ></h:inputSecret><br/>
-            Adresse:<h:inputTextarea value="#{employee.adresse}" ></h:inputTextarea><br/>
-            <h:commandLink value="envoyer"> </h:commandLink>
+            Nom:<h:inputText value="#{employee.nom}" validatorMessage="un nom alphabétique est requis!">
+                <f:validateRequired></f:validateRequired>
+                <f:validateRegex pattern="[A-Za-z ]"></f:validateRegex>
+            
+            </h:inputText><br/>
+            prenom:<h:inputText validatorMessage="un prenom alphabétique est requis!" value="#{employee.prenom}">
+                <f:validateRequired></f:validateRequired>
+            <f:validateRegex pattern="[A-Za-z ]"></f:validateRegex>
+            
+            </h:inputText><br/>
+            Email:<h:inputText validatorMessage="le email est obligatoire" value="#{employee.email}">
+            <f:validateRequired></f:validateRequired>
+            </h:inputText><br/>
+            Age:<h:inputText validatorMessage="age obligatoire entre 18-65" value="#{employee.age}">
+            <f:validateRequired></f:validateRequired>
+            <f:validateLongRange minimum="18" maximum="65"></f:validateLongRange>
+            </h:inputText><br/>
+            Password: <h:inputSecret validatorMessage="le password doit être d'au moins 8 caractéres" value="#{employee.password}" >
+            <f:validateRequired></f:validateRequired>
+            <f:validateLength minimum="8" maximum="100"></f:validateLength>
+            </h:inputSecret><br/>
+            Adresse:<h:inputTextarea value="#{employee.adresse}" >
+            <f:validateRequired></f:validateRequired>
+            </h:inputTextarea><br/>
+            <h:commandButton value="envoyer"> </h:commandButton>
             
             
             
