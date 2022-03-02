@@ -3,10 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Facelet jsf validation</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            Nom:<h:inputText value="#{employee.nom}"></h:inputText><br/>
+            prenom:<h:inputText value="#{employee.prenom}"></h:inputText><br/>
+            Email:<h:inputText value="#{employee.email}"></h:inputText><br/>
+            Age:<h:inputText value="#{employee.age}"></h:inputText><br/>
+            Password: <h:inputSecret value="#{employee.password}" ></h:inputSecret><br/>
+            Adresse:<h:inputTextarea value="#{employee.adresse}" ></h:inputTextarea><br/>
+            <h:commandLink value="envoyer"> </h:commandLink>
+            
+            
+            
+        </h:form>
     </h:body>
 </html>
 
